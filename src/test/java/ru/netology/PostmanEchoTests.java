@@ -2,22 +2,24 @@ package ru.netology;
 
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.Matchers.*;
+
 import static io.restassured.RestAssured.given;
 
 public class PostmanEchoTests {
+
+    private static String requestBody = "{\n" +
+            "  \"data\": \"some_value\"\n}";
+
     @Test
-    void postTest(){
+    void postTest() {
         given()
                 .baseUri("https://postman-echo.com")
-                .body("some data") // отправляемые данные (заголовки и query можно выставлять аналогично)
-// Выполняемые действия
+                .header("Content-type", "application/json")
+                .body(requestBody) // отправляемые данные (заголовки и query можно выставлять аналогично)
                 .when()
                 .post("/post")
-// Проверки
                 .then()
-                .statusCode(200)
-                .body(/* --> ваша проверка здесь <-- */)
-        ;
-
+                .body("data.data", equalTo("some_value"));
     }
 }

@@ -1,36 +1,32 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "type": "array",
-  "default": [],
-  "items": {
-    "type": "object",
-    "additionalProperties": false,
-    "required": [
-      "id",
-      "name",
-      "number",
-      "balance",
-      "currency"
-    ],
-    "properties": {
-      "id": {
-        "type": "integer"
+  "store": {
+    "book": [
+      {
+        "author": "Nigel Rees",
+        "category": "reference",
+        "price": 8.95,
+        "title": "Sayings of the Century"
       },
-      "name": {
-        "type": "string",
-        "minLength": 1
+      {
+        "author": "Evelyn Waugh",
+        "category": "fiction",
+        "price": 12.99,
+        "title": "Sword of Honour"
       },
-      "number": {
-        "type": "string",
-        "pattern": "^•• \\d{4}$"
+      {
+        "author": "Herman Melville",
+        "category": "fiction",
+        "isbn": "0-553-21311-3",
+        "price": 8.99,
+        "title": "Moby Dick"
       },
-      "balance": {
-        "type": "integer",
-        "default": 0
-      },
-      "currency": {
-        "type": "string"
+      {
+        "author": "J. R. R. Tolkien",
+        "category": "fiction",
+        "isbn": "0-395-19395-8",
+        "price": 22.99,
+        "title": "The Lord of the Rings"
       }
-    }
+    ]
   }
 }
